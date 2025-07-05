@@ -40,13 +40,14 @@
 
 <style scoped>
 .footer {
-  background: rgba(44, 62, 80, 0.9);
+  background: rgba(10, 10, 10, 0.9);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   color: white;
   padding: 3rem 0 1rem;
   margin-top: auto;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(0, 212, 255, 0.2);
+  box-shadow: 0 -8px 32px rgba(0, 212, 255, 0.1);
 }
 
 .footer-content {
@@ -63,23 +64,28 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  background: linear-gradient(135deg, var(--neon-blue), var(--neon-pink));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .footer-icon {
   font-size: 1.8rem;
   animation: pulse 2s infinite;
+  filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.8));
 }
 
 .footer-subtitle {
   margin-bottom: 1rem;
   color: #fff;
   font-size: 1.1rem;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 2px solid rgba(0, 212, 255, 0.3);
   padding-bottom: 0.5rem;
 }
 
 .footer-description {
-  color: #bdc3c7;
+  color: var(--text-secondary);
   line-height: 1.6;
 }
 
@@ -101,7 +107,7 @@
 }
 
 .footer-links li a {
-  color: #bdc3c7;
+  color: var(--text-secondary);
   text-decoration: none;
   transition: all 0.3s ease;
   display: flex;
@@ -110,22 +116,28 @@
 }
 
 .footer-links li a:hover {
-  color: #667eea;
+  color: var(--neon-blue);
   text-decoration: none;
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
 }
 
 .footer-tech li {
-  color: #bdc3c7;
+  color: var(--text-secondary);
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
+.footer-tech li:hover {
+  color: var(--neon-pink);
+  text-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+}
+
 .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(0, 212, 255, 0.2);
   padding-top: 1rem;
   text-align: center;
-  color: #95a5a6;
+  color: var(--text-secondary);
 }
 
 @media (max-width: 768px) {

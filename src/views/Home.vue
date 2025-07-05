@@ -3,6 +3,7 @@
     <section class="hero">
       <div class="hero-bg">
         <div class="hero-particles"></div>
+        <div class="hero-grid"></div>
       </div>
       <div class="hero-content">
         <h1 class="hero-title fade-in-up">
@@ -108,7 +109,7 @@ const filterByTag = (tag) => {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
   z-index: -2;
 }
 
@@ -119,10 +120,28 @@ const filterByTag = (tag) => {
   right: 0;
   bottom: 0;
   background-image: 
-    radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+    radial-gradient(circle at 20% 80%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 0, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
   animation: float 6s ease-in-out infinite;
+}
+
+.hero-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(rgba(0, 212, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 212, 255, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(50px, 50px); }
 }
 
 @keyframes float {
@@ -147,11 +166,13 @@ const filterByTag = (tag) => {
   align-items: center;
   justify-content: center;
   gap: 1rem;
+  text-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
 }
 
 .hero-icon {
   font-size: 4rem;
   animation: pulse 2s infinite;
+  filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.8));
 }
 
 .hero-subtitle {
@@ -159,6 +180,7 @@ const filterByTag = (tag) => {
   margin-bottom: 3rem;
   opacity: 0.9;
   font-weight: 300;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
 }
 
 .hero-actions {
@@ -171,37 +193,54 @@ const filterByTag = (tag) => {
 .btn-icon {
   margin-right: 0.5rem;
   font-size: 1.1rem;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
 }
 
 .btn-primary {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(0, 212, 255, 0.2);
   backdrop-filter: blur(10px);
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(0, 212, 255, 0.3);
   color: white;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
 }
 
 .btn-primary:hover {
-  background: rgba(255, 255, 255, 0.3);
-  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(0, 212, 255, 0.3);
+  border-color: rgba(0, 212, 255, 0.5);
   transform: translateY(-3px);
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
 }
 
 .btn-secondary {
   background: transparent;
-  border: 2px solid white;
+  border: 2px solid rgba(255, 0, 255, 0.3);
   color: white;
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.3);
 }
 
 .btn-secondary:hover {
-  background: white;
-  color: #667eea;
+  background: rgba(255, 0, 255, 0.2);
+  border-color: rgba(255, 0, 255, 0.5);
   transform: translateY(-3px);
+  box-shadow: 0 0 30px rgba(255, 0, 255, 0.5);
 }
 
 .featured-posts {
   padding: 5rem 0;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
+  position: relative;
+}
+
+.featured-posts::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(255, 0, 255, 0.05));
+  pointer-events: none;
 }
 
 .section-title {
@@ -213,11 +252,13 @@ const filterByTag = (tag) => {
   align-items: center;
   justify-content: center;
   gap: 1rem;
+  text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
 }
 
 .title-icon {
   font-size: 2.5rem;
   animation: pulse 2s infinite;
+  filter: drop-shadow(0 0 15px rgba(0, 212, 255, 0.8));
 }
 
 .posts-grid {
@@ -225,11 +266,27 @@ const filterByTag = (tag) => {
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 2.5rem;
   margin-bottom: 3rem;
+  position: relative;
+  z-index: 1;
 }
 
 .tags-section {
   padding: 5rem 0;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(255, 0, 255, 0.1));
+  position: relative;
+}
+
+.tags-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 30% 70%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 70% 30%, rgba(255, 0, 255, 0.1) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 .tags-grid {
@@ -237,24 +294,27 @@ const filterByTag = (tag) => {
   flex-wrap: wrap;
   gap: 1.5rem;
   justify-content: center;
+  position: relative;
+  z-index: 1;
 }
 
 .tag-large {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(26, 26, 26, 0.8);
   color: var(--text-primary);
   padding: 1rem 2rem;
   border-radius: 30px;
   font-size: 1.1rem;
   cursor: pointer;
   transition: all 0.4s ease;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   gap: 0.5rem;
   font-weight: 600;
-  border: 2px solid transparent;
+  border: 2px solid rgba(0, 212, 255, 0.3);
   position: relative;
   overflow: hidden;
+  backdrop-filter: blur(10px);
 }
 
 .tag-large::before {
@@ -264,7 +324,7 @@ const filterByTag = (tag) => {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+  background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.2), transparent);
   transition: left 0.5s;
 }
 
@@ -273,16 +333,17 @@ const filterByTag = (tag) => {
 }
 
 .tag-large:hover {
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, var(--neon-blue), var(--neon-pink));
   color: white;
   transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3);
-  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 15px 35px rgba(0, 212, 255, 0.4);
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
 .tag-icon {
   font-size: 1.2rem;
   font-weight: bold;
+  filter: drop-shadow(0 0 5px rgba(0, 212, 255, 0.5));
 }
 
 @media (max-width: 768px) {

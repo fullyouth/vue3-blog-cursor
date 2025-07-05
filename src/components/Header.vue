@@ -35,14 +35,14 @@
 
 <style scoped>
 .header {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(10, 10, 10, 0.8);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(0, 212, 255, 0.2);
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+  box-shadow: 0 8px 32px rgba(0, 212, 255, 0.2);
 }
 
 .header-content {
@@ -55,7 +55,7 @@
 .logo-text {
   font-size: 1.8rem;
   font-weight: 800;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, var(--neon-blue), var(--neon-pink));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -64,11 +64,13 @@
   align-items: center;
   gap: 0.5rem;
   transition: all 0.3s ease;
+  text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
 }
 
 .logo-icon {
   font-size: 2rem;
   animation: pulse 2s infinite;
+  filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.8));
 }
 
 .logo a {
@@ -78,6 +80,7 @@
 
 .logo:hover .logo-text {
   transform: scale(1.05);
+  text-shadow: 0 0 30px rgba(0, 212, 255, 0.8);
 }
 
 .nav {
@@ -96,26 +99,29 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 212, 255, 0.1);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(0, 212, 255, 0.2);
 }
 
 .nav-link:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(0, 212, 255, 0.2);
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 15px rgba(0, 212, 255, 0.3);
   color: white;
+  border-color: rgba(0, 212, 255, 0.4);
 }
 
 .nav-link.router-link-active {
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, var(--neon-blue), var(--neon-pink));
   color: white;
-  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 5px 15px rgba(0, 212, 255, 0.4);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .nav-icon {
   font-size: 1.2rem;
+  filter: drop-shadow(0 0 5px rgba(0, 212, 255, 0.5));
 }
 
 @media (max-width: 768px) {

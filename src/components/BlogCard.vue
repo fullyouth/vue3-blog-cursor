@@ -69,13 +69,14 @@ const filterByTag = (tag) => {
 
 <style scoped>
 .blog-card {
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--bg-card);
   border-radius: 20px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
   transition: all 0.4s ease;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(0, 212, 255, 0.2);
   position: relative;
+  backdrop-filter: blur(10px);
 }
 
 .blog-card::before {
@@ -85,7 +86,7 @@ const filterByTag = (tag) => {
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, var(--neon-blue), var(--neon-pink));
   transform: scaleX(0);
   transition: transform 0.3s ease;
 }
@@ -96,7 +97,8 @@ const filterByTag = (tag) => {
 
 .blog-card:hover {
   transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 212, 255, 0.3);
+  border-color: rgba(0, 212, 255, 0.4);
 }
 
 .blog-card-content {
@@ -118,18 +120,20 @@ const filterByTag = (tag) => {
   font-weight: 700;
   line-height: 1.4;
   transition: all 0.3s ease;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, var(--neon-blue), var(--neon-pink));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  text-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
 }
 
 .blog-title a:hover {
-  background: linear-gradient(135deg, #764ba2, #f093fb);
+  background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   transform: translateX(5px);
+  text-shadow: 0 0 30px rgba(255, 0, 255, 0.5);
 }
 
 .blog-meta {
@@ -148,12 +152,14 @@ const filterByTag = (tag) => {
 }
 
 .meta-item:hover {
-  color: #667eea;
+  color: var(--neon-blue);
   transform: translateY(-1px);
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
 }
 
 .meta-icon {
   font-size: 1rem;
+  filter: drop-shadow(0 0 5px rgba(0, 212, 255, 0.5));
 }
 
 .blog-excerpt {
@@ -175,7 +181,7 @@ const filterByTag = (tag) => {
 }
 
 .tag {
-  background: linear-gradient(135deg, #f093fb, #f5576c);
+  background: linear-gradient(135deg, var(--neon-blue), var(--neon-pink));
   color: white;
   padding: 0.4rem 1rem;
   border-radius: 20px;
@@ -186,25 +192,28 @@ const filterByTag = (tag) => {
   align-items: center;
   gap: 0.3rem;
   font-weight: 600;
-  box-shadow: 0 4px 15px rgba(240, 147, 251, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .tag:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(240, 147, 251, 0.4);
+  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.5);
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
 .tag-icon {
   font-size: 0.9rem;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
 }
 
 .blog-footer {
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid rgba(0, 212, 255, 0.2);
   padding-top: 1rem;
 }
 
 .read-more {
-  color: #667eea;
+  color: var(--neon-blue);
   text-decoration: none;
   font-weight: 600;
   display: flex;
@@ -215,8 +224,9 @@ const filterByTag = (tag) => {
 }
 
 .read-more:hover {
-  color: #764ba2;
+  color: var(--neon-pink);
   transform: translateX(5px);
+  text-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
 }
 
 .arrow {
